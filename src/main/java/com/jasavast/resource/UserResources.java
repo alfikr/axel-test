@@ -28,6 +28,7 @@ public class UserResources {
     public Mono<UserDTO> createUser(@RequestBody @Valid UserVM userVM){
         return userService.createUser(userVM,userVM.getPassword()).map(UserDTO::new);
     }
+    @PostMapping("/authenticate")
     public Mono<JWTToken> authorize(@Valid @RequestBody Mono<LoginVM> loginVM){
         return loginVM
                 .flatMap(login->authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(login.getUsername(),login.getPassword()))
