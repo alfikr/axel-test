@@ -51,7 +51,7 @@ public class UserService {
             user.setPassword(passwordEncoder.encode(password));
             user.setEmail(userDTO.getEmail());
             user.setModifiedAt(LocalDateTime.now());
-            user.setAktif(false);
+            user.setAktif(true);
             Set<Authority> authoritySet=new HashSet<>();
             authoritySet.add(authorityRepository.findById("ROLE_USER").orElse(new Authority("ROLE_USER")));
             user.setAuthorities(authoritySet);
