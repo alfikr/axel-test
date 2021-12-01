@@ -14,7 +14,7 @@ import java.util.Map;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "jvs-audit")
+@Table(name = "jsv_audit")
 @Builder
 @Entity
 public class AuditEventModel {

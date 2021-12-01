@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table
+@Table(name = "jsv_authority")
 @Entity
 public class Authority {
     @Id

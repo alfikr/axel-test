@@ -42,6 +42,10 @@ public class SecurityConfiguration {
                 .formLogin()
                 .authenticationManager(reactiveAuthenticationManager())
                 .and()
+                .headers()
+                .frameOptions()
+                .disable()
+                .and()
                 .authorizeExchange()
                 .pathMatchers(HttpMethod.OPTIONS).permitAll()
                 .pathMatchers("/api/register").permitAll()
@@ -50,6 +54,7 @@ public class SecurityConfiguration {
                 .pathMatchers("/swagger-ui/**").permitAll()
                 .pathMatchers("/v2/api-docs").permitAll()
                 .pathMatchers("/**").permitAll()
+                .pathMatchers("/h2-console").permitAll()
                 .pathMatchers("/api/**").authenticated()
                 .and()
                 .build();
